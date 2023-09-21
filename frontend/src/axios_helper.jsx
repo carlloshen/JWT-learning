@@ -16,11 +16,16 @@ export const setAuthToken = (token) =>{
     localStorage.setItem("auth_token", token)
 }
 
+export const removeAuthToken = () =>{
+    localStorage.removeItem("auth_token")
+}
+
 const request = (method, url, data) =>{
 
     let headers = {}
 
     if(getAuthToken() !== null && getAuthToken() !== "null"){
+        console.log(getAuthToken())
         headers = {"Authorization": `Bearer ${getAuthToken()}`}
     }
 
